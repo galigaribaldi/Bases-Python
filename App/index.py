@@ -6,17 +6,17 @@ class Product:
     db_name = 'Productos.db'
     def __init__(self, window):
         self.wind = window
-        self.wind.title('Aplication')
+        self.wind.title('SQL Graficals')
         frame = LabelFrame(self.wind, text ='Registra un nuevo producto' )
         frame.grid(row = 0, column = 0, columnspan = 3, pady = 20)
 
         ### Caja de entrada
-        Label(frame, text = 'Name: ').grid(row = 1, column = 0)
+        Label(frame, text = 'Nombre: ').grid(row = 1, column = 0)
         self.name = Entry(frame)
         self.name.grid(row = 1, column = 1)
 
         ### Price Input
-        Label(frame, text = 'Price: ').grid(row = 2, column = 0)
+        Label(frame, text = 'Precio: ').grid(row = 2, column = 0)
         self.price = Entry(frame)
         self.name.focus()
         self.price.grid(row = 2, column = 1)
@@ -31,7 +31,7 @@ class Product:
         ###Table
         self.tree = ttk.Treeview(height= 10, columns = 2)
         self.tree.grid(row  = 4, column = 0, columnspan = 2 )
-        self.tree.heading('#0',text = 'Name', anchor = CENTER)
+        self.tree.heading('#0',text = 'Nombre', anchor = CENTER)
         self.tree.heading('#1',text = 'Precio', anchor = CENTER)
         
         ##
@@ -72,7 +72,7 @@ class Product:
             #print('Dato salvado :D')
             #print(self.name.get())
             #print(self.price.get())
-            self.message['text'] = 'Product {} Agregado correctamente'.format(self.name.get())
+            self.message['text'] = 'Producto {} Agregado correctamente'.format(self.name.get())
             self.name.delete(0, END)
             self.price.delete(0, END)
         else:
@@ -106,22 +106,34 @@ class Product:
         self.edit_wind = Toplevel()
         self.edit_wind.title = 'Edit Product'
         ##Old Name
-        Label(self.edit_wind, text = 'Old Name').grid(row = 0, column = 1)
+        Label(self.edit_wind, text = 'Nombre Antiguo: ').grid(row = 0, column = 1)
         Entry(self.edit_wind, textvariable = StringVar(self.edit_wind, value=name), state = 'readonly').grid(row =0, column = 2)
 
         ##New Name
-        Label(self.edit_product, text = 'New Name').grid(row =1, column = 1)
+        Label(self.edit_wind, text = 'Precio Nuevo: ').grid(row =1, column = 1)
         new_name = Entry(self.edit_wind)
         new_name.grid(row =1, column =2)
 
         ##old Price
-        Label(self.edit_wind, text = 'Old Price').grid(row =2, column=1)
+        Label(self.edit_wind, text = 'Precio Antiguo').grid(row =2, column=1)
         Entry(self.edit_wind, textvariable = StringVar(self.edit_wind, value = old_price), state = 'readonly').grid(row = 2, column=2)
         
         ##New Price
-        Label(self.edit_wind, text = 'New price').grid(row =3, column=1)
+        Label(self.edit_wind, text = 'Nuevo Nombre').grid(row =3, column=1)
         new_price = Entry(self.edit_wind)
         new_price.grid(row = 3, column=2)
+
+        ###Botton nuevo
+        Button(self.edit_wind, text = 'Actualizar', command = lambda: self.edit_records(new_name.get(), name, new_price.get(), old_price)).grid(row =4, column = 2, sticky = W)
+    
+    def edit_records(self, new_name, name,new_price,old_price):
+        query = 'UPDATE Producto SET Nombre = ?, Precio = ? WHERE Nombre = ? AND Precio = ?'
+        parameters = (new_name, new_price, name, old_price)
+        self.run_query(query, parameters)
+        self.edit_wind.destroy()
+        self.message['text'] = 'Record {} update Succesfoly'. format(name)
+        self.get_product()
+
 if __name__ == '__main__':
     window = Tk()
     app = Product(window)
