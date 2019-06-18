@@ -6,7 +6,7 @@ def base_paises():
 	##Creando tablas
 	cursor.execute('''
 		CREATE TABLE paises(
-			pais_id NUMBER(10),
+			pais_id NUMBER(10) PRIMARY KEY,
 			nombre VARCHAR2(20),
 			continente VARCHAR(20),
 			lengua VARCHAR2(90),
@@ -15,7 +15,7 @@ def base_paises():
 		''')
 	cursor.execute('''
 		CREATE TABLE estudiante(
-			estudiante_id NUMBER(10) NOT NULL,
+			estudiante_id NUMBER(10) CONSTRAINT estudiante_id_pk PRIMARY KEY,
 			nombre VARCHAR2(90) NOT NULL,
 			direccion VARCHAR2(90) NOT NULL,
 			calificacion NUMBER(10),
