@@ -25,7 +25,7 @@ def base_paises():
 		'''
 		)
 	##insertando valores en las tablas
-	cursor.execute("INSERT INTO paises VALUES(1, 'Mexico', 'Americano', 'Español', 'Peso Mexicano')")
+	cursor.execute("INSERT INTO paises VALUES(1, 'Mexico', 'Americano', 'Espanol', 'Peso Mexicano')")
 	cursor.execute("INSERT INTO paises VALUES(2, 'China', 'Asiatico', 'Chino', 'Peso Chino')")
 	cursor.execute("INSERT INTO paises VALUES(3, 'Inglaterra', 'Europa', 'Inles', 'Libra Esterlina')")
 	cursor.execute("INSERT INTO paises VALUES(4, 'Egipto', 'Africano', 'Egipcio', 'Peso Egipcio')")

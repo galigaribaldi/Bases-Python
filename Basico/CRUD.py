@@ -10,7 +10,7 @@ def crear_tabla():
 		    ANIO            NUMBER(4, 0)     NOT NULL,
 		    PERIODO         NUMBER(1, 0)     NOT NULL,
 		    FECHA_INICIO    DATE             NOT NULL,
-		    FECHA_FIN       DATE             NOT NULL,
+		    FECHA_FIN       DATE             NOT NULL
 		)
 		''')
 	cursor.execute('''
@@ -93,3 +93,5 @@ while True:
 		print("Ocurrio un error La base se crerrar")
 		con.close()
 		break
+
+#crear_tabla()
