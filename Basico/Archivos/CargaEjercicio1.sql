@@ -1,0 +1,5 @@
+INSERT INTO cliente_import (cliente_id,nombre, ap_paterno, ap_materno, email, fecha_nacimiento) VALUES (1,'DONOVAN', 'CASTANEDA', null, 'Donov.CASTAN3606@live.com', '1942-06-22')
+INSERT INTO cliente_import (cliente_id,nombre, ap_paterno, ap_materno, email, fecha_nacimiento) VALUES (2,'JANIYAH', 'MCCRAY', 'MCCRAY', 'Jan.MCC9414@live.com', '1914-07-10')
+INSERT INTO cliente_import (cliente_id,nombre, ap_paterno, ap_materno, email, fecha_nacimiento) VALUES (3,'issac', 'BLEVINS', 'BLEVINS', 'Is.BLEVIN2632@gmail.com','2011-05-16')
+INSERT INTO cliente_import (cliente_id,nombre, ap_paterno, ap_materno, email, fecha_nacimiento) VALUES (4,'THEODORE', 'ANTHONY', 'ANTHONY', 'Theodor.ANTHON6698@mail2web.com','1965-07-31')
+INSERT INTO cliente_import (cliente_id,nombre, ap_paterno, ap_materno, email, fecha_nacimiento) VALUES (5,'ayden', 'PAYNE', 'PAYNE', 'Ayd.PAYNE3872@gmail.com', '2011-08-21')
