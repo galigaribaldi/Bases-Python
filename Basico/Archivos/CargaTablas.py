@@ -2,7 +2,7 @@ import sqlite3 ### Importamos la libreria SQLITE3
 con = sqlite3.connect('Bases.db') ##Creamos nuestra conexion a bases
 cursor = con.cursor() 
 
-creacion = open('Ejercicio1.sql','r') ###Abrimos nuestro archivo en modo lectura
+creacion = open('calificaciones.sql','r') ###Abrimos nuestro archivo en modo lectura
 l = creacion.readlines() ##Leeemos todo nuestro archivo en modo lectura
 ###Esto nos va a devolver las cadenas en formato lista
 
